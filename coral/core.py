@@ -63,13 +63,6 @@ class AuctionOrder(object):
         the aggregated list of orders
     allocated : float
         the number of allocated shares for these orders
-
-    Methods
-    -------
-    compared_to(other_order: Order) -> int:
-        Checks if another user is more willing to buy than itself.
-    compared_to(other_order: Order) -> int:
-        Checks if another user is more willing to sell than itself.
     """
     q: float
     p: float
@@ -137,20 +130,6 @@ class AuctionManager(object):
     sell_index : int
         internal index pointing to the last evaluated "SELL" order
 
-    Methods
-    -------
-    next_buy_order():
-        Returns the next unallocated buy order or `None`.
-    next_sell_order():
-        Returns the next unallocated sell order or `None`.
-    match_orders(buy_order: AuctionOrder, sell_order: AuctionOrder):
-        Tries to see if there is a match between the buy and sell order.
-    allocate_orders():
-        Runs the auction with the current buy/sell orders.
-    append_to_buy_orders():
-        Adds an order to the `buy_orders` list, sorted according to the user's willingness to buy.
-    append_to_sell_orders():
-        Adds an order to the `sell_orders` list, sorted according to the user's willingness to sell.
     """
     buy_orders: List[AuctionOrder]
     sell_orders: List[AuctionOrder]
@@ -233,7 +212,7 @@ class AuctionManager(object):
 
         Returns
         -------
-        result : boolean
+        boolean
             A flag indicating if the orders matched.
         """
         if buy_order.p < sell_order.p:
