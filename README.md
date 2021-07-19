@@ -82,10 +82,3 @@ On my code I describe it as `allocate_orders` since what I did was match the
 orders according to the user's willingness to buy or sell shares, and allocate
 them. I believe a more descriptive term for the action can be used to align the
 code to the design model.
-
-## Optional Extra Credits
-
-### Extension #1
-
-The current implementation is fair in the sense that those more willing to buy
-or sell are served first. But,
